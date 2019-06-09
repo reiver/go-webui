@@ -6,17 +6,41 @@ Hello World Example
 A "hello world" example for using webui is:
 
 	import "github.com/reiver/go-webui"
-
+	
 	// ...
-
+	
 	err := webui.LaunchAndServeString("Hello world!")
 
 Or:
 
 	import "github.com/reiver/go-webui"
-
+	
 	// ...
-
+	
 	err := webui.Launch("data:,Hello%20world!")
+
+More Realistic Example
+
+A more realistic example would probably have you (the programmer) create one or more ‘http.Handler’.
+
+The ‘http.Handler’ would serve the content that is shows in the Web UI.
+
+Such as in:
+
+	import "github.com/reiver/go-webui"
+	
+	// ...
+	
+	func serveHttp(w http.ResponseWriter, r *http.Request) {
+		// ...
+	}
+	
+	// ...
+	
+	var handler http.Handler = http.HandlerFunc(serveHttp)
+	
+	// ...
+	
+	err := webui.LaunchAndServe(handler)
 */
 package webui
