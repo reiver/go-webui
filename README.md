@@ -7,3 +7,24 @@ Package **webui** enables an application written in the Go programming language 
 Online documentation, which includes examples, can be found at: http://godoc.org/github.com/reiver/go-webui
 
 [![GoDoc](https://godoc.org/github.com/reiver/go-webui?status.svg)](https://godoc.org/github.com/reiver/go-webui)
+
+## Hello World Example
+
+A "hello world" example for using **webui** is:
+```go
+import "github.com/reiver/go-webui"
+
+// ...
+
+err := webui.LaunchAndServeString("Hello world!")
+```
+
+Or:
+```go
+import "github.com/reiver/go-webui"
+
+// ...
+
+err := webui.Launch("data:,Hello%20world!")
+```
+
