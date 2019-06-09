@@ -28,3 +28,17 @@ import "github.com/reiver/go-webui"
 err := webui.Launch("data:,Hello%20world!")
 ```
 
+More Realistic Example
+```go
+import "github.com/reiver/go-webui"
+
+// ...
+
+func serveHttp(w http.ResponseWriter, r *http.Request) {
+	// ...
+}
+
+// ...
+
+err := webui.LaunchAndServe( http.HandlerFunc(serveHttp) )
+```
