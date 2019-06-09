@@ -28,7 +28,12 @@ import "github.com/reiver/go-webui"
 err := webui.Launch("data:,Hello%20world!")
 ```
 
-More Realistic Example
+## More Realistic Example
+A _more realistic_ example would probably have you (the programmer) create one or more `http.Handler`.
+
+The `http.Handler` would serve the content that is shows in the Web UI.
+
+Such as in:
 ```go
 import "github.com/reiver/go-webui"
 
@@ -40,5 +45,9 @@ func serveHttp(w http.ResponseWriter, r *http.Request) {
 
 // ...
 
-err := webui.LaunchAndServe( http.HandlerFunc(serveHttp) )
+var handler http.Handler = http.HandlerFunc(serveHttp)
+
+// ...
+
+err := webui.LaunchAndServe(handler)
 ```
