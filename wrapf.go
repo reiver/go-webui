@@ -28,9 +28,11 @@ func wrapf(err error, format string, a ...interface{}) error {
 
 	fmt.Fprintf(&buffer, format, a...)
 
-	buffer.WriteString(": ")
+	if nil != err {
+		buffer.WriteString(": ")
 
-	buffer.WriteString(err.Error())
+		buffer.WriteString(err.Error())
+	}
 
 	return errors.New(buffer.String())
 }
