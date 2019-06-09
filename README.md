@@ -51,3 +51,5 @@ var handler http.Handler = http.HandlerFunc(serveHttp)
 
 err := webui.LaunchAndServe(handler)
 ```
+
+In other words, use can use many of the same tools you use to create Web applications, to create a desktop UI.
